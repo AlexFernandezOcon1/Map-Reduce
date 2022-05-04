@@ -2,8 +2,6 @@ import os
 import logging
 import threading
 import queue
-import concurrent.futures
-import time
 
 
 class WordCounter:
@@ -18,6 +16,7 @@ class WordCounter:
     def createThreads(self, path):
         thread = list()
         for i in range(self.nThreads):
+            # makes the thread work on map
             t = threading.Thread(target=self.mapLine, daemon=True)
             thread.append(t)
             t.start()
@@ -30,6 +29,7 @@ class WordCounter:
             work = []
             for line in f:
                 count = count + +1
+                # group lines in packs of 100 to reduce the amount of access to the queue
                 if count % 100 == 0:
                     self.q.put(work)
                     work = []
@@ -55,9 +55,6 @@ class WordCounter:
         f = open(resultPath, "w", encoding="utf8")
         f.write(resultPath + "\n")
         logging.info("Executing operation")
-        # total = map(lambda )
         self.rate = {key: (value / self.total * 100) for (key, value) in self.rate.items()}
         [f.write(key + " : " + "{:.2f}".format(value) + "% \n") for key, value in self.rate.items()]
         f.close()
-
-

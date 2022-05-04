@@ -13,11 +13,13 @@ class Words(WordCounter):
         super().__init__(threads)
 
     def mapLine(self):
+        # While the queue is not empty process the pack of lines
         while not self.q.empty():
             lines = self.q.get()
             for line in lines:
                 for word in line.split():
                     letterCheck = []
+                    # We count per word so we increase total here
                     self.total = self.total + 1
                     for letter in word.lower():
                         if letter not in letterCheck and letter.isalpha():
@@ -26,6 +28,7 @@ class Words(WordCounter):
 
             self.q.task_done()
 
+    # To use the algorithm word.execute(path)
     def execute(self, path):
         self.map = []
         self.rate = {}
