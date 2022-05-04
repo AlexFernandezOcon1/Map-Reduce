@@ -4,6 +4,8 @@ from words import Words
 from histograma import Histogram
 
 
+# Author : Alex Fernández Ocón
+
 def main():
     threads = 2
     option = 0

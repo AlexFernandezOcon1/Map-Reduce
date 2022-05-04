@@ -8,6 +8,8 @@ import time
 from WordCounter import WordCounter
 
 
+# Author : Alex Fernández Ocón
+
 class Histogram(WordCounter):
     def __init__(self, threads):
         super().__init__(threads)

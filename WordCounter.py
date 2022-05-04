@@ -4,6 +4,8 @@ import threading
 import queue
 
 
+# Author : Alex Fernández Ocón
+
 class WordCounter:
     def __init__(self, threads):
 

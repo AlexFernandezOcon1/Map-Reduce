@@ -8,6 +8,8 @@ import time
 from WordCounter import WordCounter
 
 
+# Author : Alex Fernández Ocón
+
 class Words(WordCounter):
     def __init__(self, threads):
         super().__init__(threads)
@@ -51,4 +53,3 @@ class Words(WordCounter):
         print(path)
         print(self.rate)
         return self.rate
-
