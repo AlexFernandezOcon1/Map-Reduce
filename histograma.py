@@ -39,18 +39,16 @@ class Histogram(WordCounter):
         super().createThreads(path)
         final = time.time()
         self.total = len(self.map)
-        print("Map Duration:", final - initial)
+        #print("Map Duration:", final - initial)
 
         initial = time.time()
         super().shuffle()
         final = time.time()
-        print("Shuffle Duration:", final - initial)
+        #print("Shuffle Duration:", final - initial)
 
         initial = time.time()
         super().operation(path)
         final = time.time()
-        print("Reduce Duration:", final - initial)
-        print(path)
-        print(self.rate)
+        #print("Reduce Duration:", final - initial)
         return self.rate
 

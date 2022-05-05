@@ -1,0 +1,8 @@
+#!/bin/bash
+params=""
+for param in "$@"
+do
+  params="$params $param"
+done
+
+python TextCounter.py $params

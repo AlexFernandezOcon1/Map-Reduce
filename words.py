@@ -1,8 +1,3 @@
-import os
-import logging
-import threading
-import queue
-import concurrent.futures
 import time
 
 from WordCounter import WordCounter
@@ -39,17 +34,15 @@ class Words(WordCounter):
         super().read(path)
         super().createThreads(path)
         final = time.time()
-        print("Map Duration:", final - initial)
+        #print("Map Duration:", final - initial)
 
         initial = time.time()
         super().shuffle()
         final = time.time()
-        print("Shuffle Duration:", final - initial)
+        #print("Shuffle Duration:", final - initial)
 
         initial = time.time()
         super().operation(path)
         final = time.time()
-        print("Reduce Duration:", final - initial)
-        print(path)
-        print(self.rate)
+        #print("Reduce Duration:", final - initial)
         return self.rate
