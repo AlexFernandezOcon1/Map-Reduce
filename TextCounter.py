@@ -26,7 +26,8 @@ def main():
             alg = Histogram(threads)
         files = sys.argv[move:]
         for file in files:
-            alg.execute(file)
+            print(file)
+            print(alg.execute(file))
 
     # 7m 30s  1t
     # 5m 30s  8t

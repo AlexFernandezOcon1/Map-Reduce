@@ -1,8 +1,27 @@
 #!/bin/bash
 params=""
+next=0
 for param in "$@"
 do
-  params="$params $param"
+  if [ $next == 1 ]
+  then
+    params="$params $param"
+    next=0
+  else
+    if [ "$param" == "-t" ]
+    then
+      params="$params $param"
+      next=1
+    else
+        if [ "$param" == "-h" ]
+      then
+        params="$params $param"
+      else
+        params="$params /data/$param"
+      fi
+    fi
+  fi
 done
+
 
 python TextCounter.py $params
